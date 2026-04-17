@@ -1,191 +1,50 @@
-# Saúde+ POA
+# Welcome to your Expo app 👋
 
-## Sobre a ideia
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-O **Saúde+ POA** é um aplicativo mobile voltado para facilitar o acesso e a organização da vida de saúde dos usuários, permitindo que cada pessoa tenha seu próprio perfil e consiga gerenciar suas consultas de forma simples, rápida e eficiente.
+## Get started
 
-A proposta do aplicativo é centralizar tudo o que o usuário precisa em relação a consultas médicas, evitando esquecimentos, melhorando a organização e trazendo mais autonomia para o paciente.
+1. Install dependencies
 
----
+   ```bash
+   npm install
+   ```
 
-## Objetivo
+2. Start the app
 
-Criar uma solução simples e intuitiva onde o usuário possa:
+   ```bash
+   npx expo start
+   ```
 
-- marcar consultas;
-- visualizar seus agendamentos;
-- acompanhar consultas passadas;
-- receber lembretes importantes;
-- manter suas informações de saúde organizadas.
+In the output, you'll find options to open the app in a
 
----
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## Como o app funciona (visão geral)
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-Cada usuário terá um perfil individual dentro do aplicativo. A partir desse perfil, ele poderá:
+## Get a fresh project
 
-- acessar sua área principal (Home);
-- visualizar consultas futuras;
-- marcar novas consultas;
-- acessar seu histórico;
-- receber notificações.
+When you're ready, run:
 
-O aplicativo será pensado para ser fácil de usar, mesmo para pessoas com pouca familiaridade com tecnologia.
+```bash
+npm run reset-project
+```
 
----
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Funcionalidades principais
+## Learn more
 
-### Perfil do usuário
-Cada usuário terá um perfil com suas informações básicas, que serão utilizadas para identificar seus agendamentos e facilitar o uso do aplicativo.
+To learn more about developing your project with Expo, look at the following resources:
 
----
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-### Agendamento de consultas
-O usuário poderá:
+## Join the community
 
-- escolher uma especialidade médica;
-- selecionar local/unidade de atendimento;
-- visualizar horários disponíveis;
-- marcar uma consulta de forma simples.
+Join our community of developers creating universal apps.
 
----
-
-### Visualização de consultas
-O aplicativo terá uma área dedicada para:
-
-- consultas marcadas (futuras);
-- consultas realizadas;
-- consultas canceladas.
-
-Tudo organizado de forma clara para fácil visualização.
-
----
-
-### Histórico de atendimentos
-O usuário poderá acompanhar seu histórico, permitindo:
-
-- lembrar consultas passadas;
-- acompanhar frequência de atendimentos;
-- ter uma visão geral da sua rotina de saúde.
-
----
-
-### Lembretes e notificações
-O aplicativo enviará notificações para:
-
-- lembrar consultas próximas;
-- avisar sobre alterações;
-- confirmar agendamentos.
-
----
-
-## Ideias para enriquecer o app
-
-### Carteirinha digital
-Uma área com os dados principais do usuário em formato de carteirinha, podendo ser usada para identificação rápida.
-
----
-
-### Lista de medicamentos
-O usuário poderá registrar medicamentos em uso, com horários e lembretes.
-
----
-
-### Exames
-Uma área para acompanhar:
-
-- exames solicitados;
-- resultados disponíveis;
-- histórico de exames.
-
----
-
-### Avaliação de atendimento
-Após consultas, o usuário poderá:
-
-- dar uma nota;
-- registrar sua experiência.
-
----
-
-### Dicas de saúde
-Uma seção com conteúdos simples como:
-
-- hábitos saudáveis;
-- alimentação;
-- prevenção;
-- bem-estar.
-
----
-
-### Tela de emergência
-Um acesso rápido para:
-
-- contatos importantes;
-- números de emergência;
-- unidades próximas.
-
----
-
-### Favoritos
-O usuário poderá salvar:
-
-- médicos preferidos;
-- unidades mais utilizadas;
-- especialidades frequentes.
-
----
-
-### Acompanhamento familiar (futuro)
-Possibilidade de um usuário gerenciar:
-
-- consultas de filhos;
-- dependentes;
-- familiares.
-
----
-
-## Diferencial da ideia
-
-O diferencial do **Saúde+ POA** é ser um aplicativo:
-
-- simples de usar;
-- focado na organização do usuário;
-- pensado para o dia a dia;
-- com potencial de crescimento para funcionalidades mais completas.
-
----
-
-## Experiência do usuário
-
-O aplicativo deve ser:
-
-- fácil de entender;
-- rápido para navegar;
-- com informações claras;
-- com foco em acessibilidade.
-
----
-
-## Possível evolução
-
-No futuro, o app pode evoluir para incluir:
-
-- teleconsultas;
-- integração com clínicas;
-- integração com sistemas públicos de saúde;
-- prontuário básico do paciente;
-- acompanhamento de saúde mais completo.
-
----
-
-## Resumo
-
-O **Saúde+ POA** é um aplicativo com foco em organização pessoal de saúde, permitindo que o usuário tenha controle sobre suas consultas e informações médicas de forma simples, prática e acessível.
-
----
-
-## Status da ideia
-
-Em fase de planejamento.
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
