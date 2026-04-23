@@ -1,80 +1,41 @@
-import { useRouter } from "expo-router";
 import { useState } from "react";
+import { View, Text, StyleSheet } from "react-native";
 import { supabase } from "../lib/supabase";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-
+import { useRouter } from "expo-router";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 export default function Login() {
-    const router = useRouter();
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const handleLogin = async () => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    const handleLogin = async () => {
-        const { error } = await supabase.auth.signInWithPassword({
-            email,
-            password,
-        });
+    if (error) return alert(error.message);
 
-        if (error) {
-            alert(error.message);
-        } else {
-            router.replace("/home");
-        }
-    };
+    router.replace("/home");
+  };
 
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
 
-            <TextInput
-                placeholder="Email"
-                style={styles.input}
-                onChangeText={setEmail}
-            />
+      <Input placeholder="Email" onChangeText={setEmail} />
+      <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
 
-            <TextInput
-                placeholder="Senha"
-                secureTextEntry
-                style={styles.input}
-                onChangeText={setPassword}
-            />
+      <Button title="Entrar" onPress={handleLogin} />
 
-            <Pressable style={styles.button} onPress={handleLogin}> 
-             <Text style={styles.buttonText}>Entrar</Text>
-            </Pressable>
-
-            <Pressable onPress={() => router.push("/register")}>
-                <Text>Criar conta</Text>
-            </Pressable>
-        </View>
-    )
+      <Text onPress={() => router.push("/register")}>Criar conta</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        padding: 20,
-        backgroundColor: "#1cc7f1"
-    },
-    title: {
-        fontSize: 28,
-        marginBottom: 20,
-    },
-    input: {
-        borderWidth: 1,
-        marginBottom: 10,
-        padding: 10,
-        borderRadius: 8,
-    },
-    button: {
-        backgroundColor: "2f80ed",
-        padding: 15,
-        borderRadius: 8,
-    },
-    buttonText: {
-        color: "#FFF",
-        textAlign: "center"
-    }
-})
+  container: { flex: 1, justifyContent: "center", padding: 20 },
+  title: { fontSize: 28, marginBottom: 20 },
+});
