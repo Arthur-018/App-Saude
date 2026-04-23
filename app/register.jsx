@@ -24,14 +24,22 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPicker, setShowPicker] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
+    if (loading) return;
+    setLoading(true);
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
     });
 
-    if (error) return alert(error.message);
+    if (error) {
+      alert(error.message);
+      setLoading(false);
+      return;
+    }
 
     if (data.user) {
       await supabase.from("profiles").insert([
@@ -48,6 +56,7 @@ export default function Register() {
     } else {
       Alert.alert("Conta criada!", "Faça login.");
     }
+    setLoading(false);
     router.replace("/login");
   };
 
@@ -110,7 +119,10 @@ export default function Register() {
           onChangeText={setPassword}
         />
 
-        <Button title="Criar conta" onPress={handleRegister} />
+        <Button
+          title={loading ? "Criando conta..." : "Criar conta"}
+          onPress={loading ? () => {} : handleRegister}
+        />
 
         <Text style={styles.link} onPress={() => router.push("/login")}>
           Já tem conta? Entrar
