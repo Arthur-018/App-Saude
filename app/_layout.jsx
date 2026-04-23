@@ -27,7 +27,7 @@ export default function RootLayout() {
 
     const current = segments[0];
     const publicRoutes = ["index", "login", "register"];
-    const protectedRoutes = ["home", "profile", "consultas"];
+    const protectedRoutes = ["home", "profile", "consultas", "agendar"];
 
     if (!session && protectedRoutes.includes(current)) {
       router.replace("/login");
@@ -59,6 +59,7 @@ export default function RootLayout() {
       <Stack.Screen name="home" options={{ headerShown: false }} />
       <Stack.Screen name="profile" options={{ title: "Perfil" }} />
       <Stack.Screen name="consultas" options={{ title: "Consultas" }} />
+      <Stack.Screen name="agendar" options={{ title: "Agendar" }} />
     </Stack>
   );
 }

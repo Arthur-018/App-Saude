@@ -21,6 +21,7 @@ export default function Register() {
 
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPicker, setShowPicker] = useState(false);
@@ -47,6 +48,7 @@ export default function Register() {
           id: data.user.id,
           name,
           birth_date: birthDate,
+          phone,
         },
       ]);
     }
@@ -83,41 +85,50 @@ export default function Register() {
         />
         <Text style={styles.title}>Cadastro</Text>
 
-        <Input placeholder="Nome" value={name} onChangeText={setName} />
+        <View style={styles.card}>
+          <Input placeholder="Nome" value={name} onChangeText={setName} />
 
-        <Pressable onPress={() => setShowPicker(true)}>
-          <View pointerEvents="none">
-            <Input
-              placeholder="Data de nascimento"
-              value={birthDate}
-              editable={false}
+          <Pressable onPress={() => setShowPicker(true)}>
+            <View pointerEvents="none">
+              <Input
+                placeholder="Data de nascimento"
+                value={birthDate}
+                editable={false}
+              />
+            </View>
+          </Pressable>
+
+          {showPicker && (
+            <DateTimePicker
+              value={birthDate ? new Date(birthDate) : new Date(2000, 0, 1)}
+              mode="date"
+              display="default"
+              onChange={onChangeDate}
+              maximumDate={new Date()}
             />
-          </View>
-        </Pressable>
+          )}
 
-        {showPicker && (
-          <DateTimePicker
-            value={birthDate ? new Date(birthDate) : new Date(2000, 0, 1)}
-            mode="date"
-            display="default"
-            onChange={onChangeDate}
-            maximumDate={new Date()}
+          <Input
+            placeholder="Telefone"
+            value={phone}
+            onChangeText={setPhone}
+            keyboardType="phone-pad"
           />
-        )}
 
-        <Input
-          placeholder="Email"
-          value={email}
-          onChangeText={setEmail}
-          autoCapitalize="none"
-          keyboardType="email-address"
-        />
-        <Input
-          placeholder="Senha"
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
+          <Input
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
+          <Input
+            placeholder="Senha"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+        </View>
 
         <Button
           title={loading ? "Criando conta..." : "Criar conta"}
@@ -139,17 +150,27 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 90,
-    height: 90,
+    width: 80,
+    height: 80,
     alignSelf: "center",
-    marginBottom: 10,
+    marginBottom: 8,
   },
   title: {
-    fontSize: 28,
-    marginBottom: 20,
+    fontSize: 26,
+    marginBottom: 16,
     textAlign: "center",
     fontWeight: "bold",
     color: "#1c3d5a",
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
   },
   link: {
     textAlign: "center",

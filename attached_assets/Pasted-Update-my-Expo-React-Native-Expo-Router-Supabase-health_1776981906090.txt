@@ -1,0 +1,155 @@
+Update my Expo React Native (Expo Router + Supabase) health app. Apply BOTH functional fixes and UI improvements. Keep code simple and do not break existing structure.
+
+========================
+
+1. FIX PROFILE INFINITE LOADING
+   ========================
+
+* In profile.jsx:
+
+  * Use maybeSingle() instead of single()
+  * Handle case where user is null
+  * Always call setLoading(false)
+  * If no user → redirect to /login
+
+Expected:
+
+* Profile loads correctly
+* No infinite loading
+
+========================
+2) ADD PHONE IN REGISTER
+========================
+
+* In register.jsx:
+
+  * Add phone input field
+  * Save phone in "profiles" table when user registers
+
+Fields to save:
+
+* id (user.id)
+* name
+* birth_date
+* phone
+
+========================
+3) MOVE "VER CONSULTAS" INTO PROFILE
+====================================
+
+* In profile screen:
+
+  * Add button "Ver consultas"
+  * On press → navigate to /consultas
+
+========================
+4) HOME → AGENDAR CONSULTA FLOW
+===============================
+
+* In home.jsx:
+
+  * Add button: "Agendar Consulta"
+  * Navigate to /agendar
+
+========================
+5) AGENDAR CONSULTA FLOW (STEP BY STEP)
+=======================================
+
+Create a simple step flow:
+
+Step 1: Select Health Center (Posto)
+
+* Show list of postos (Pressable)
+* Save selected posto
+
+Step 2: Select Date
+
+* Use DateTimePicker
+* Save selected date
+
+Step 3: Select Time
+
+* Use DateTimePicker
+* Save selected time
+
+Step 4: Select Doctor
+
+* Show list of doctors (mock data ok)
+* Only show after date + time selected
+
+Step 5: Confirm Appointment
+
+IMPORTANT:
+
+* User can ONLY confirm if:
+  date selected AND time selected AND doctor selected
+
+========================
+6) SAVE APPOINTMENT
+===================
+
+Insert into "appointments":
+
+* user_id
+* appointment_date (YYYY-MM-DD)
+* appointment_time (HH:MM)
+* doctor_name
+* posto
+* status = "scheduled"
+
+========================
+7) CONSULTAS SCREEN
+===================
+
+* Show user appointments
+* Each item must display:
+
+  * Date
+  * Time
+  * Doctor
+  * Health Center
+
+========================
+8) UI IMPROVEMENTS (SIMPLE PROFESSIONAL STYLE)
+==============================================
+
+* Background: #f5f7fb
+
+* Primary color: #2f80ed
+
+* Rounded corners (10-16)
+
+* Cards for sections
+
+* Buttons:
+
+  * Large
+  * Centered text
+  * Bold
+
+* Inputs:
+
+  * Padding
+  * Border radius
+  * Light border (#ddd)
+
+* Add spacing between elements
+
+========================
+9) KEEP IT SIMPLE
+=================
+
+* Do NOT add new libraries (except DateTimePicker)
+* Do NOT refactor entire project
+* Keep everything readable
+
+========================
+EXPECTED RESULT
+===============
+
+* Profile loads correctly (no infinite loading)
+* User registers with phone number
+* "Ver consultas" inside profile
+* Home has "Agendar Consulta"
+* Full appointment flow works
+* App looks modern and clean
