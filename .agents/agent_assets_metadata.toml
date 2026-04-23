@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "FTnboHz3IbDo8frpdnypt"
+uri = "file://assets/images/login-bg.png"
+type = "image"
+title = "login bg medical"
+
+[[generated]]
+id = "dqBHU7dUwh86n8uEGCS8o"
+uri = "file://assets/images/home-header.png"
+type = "image"
+title = "home header medical"
+
+[[generated]]
+id = "b4OllxSsE7A4qO6JcmHO1"
+uri = "file://assets/images/doctor.png"
+type = "image"
+title = "doctor avatar"
+
+[[generated]]
+id = "4Sa59dHuN4yZHlgRDp2i5"
+uri = "file://assets/images/logo.png"
+type = "image"
+title = "health logo"

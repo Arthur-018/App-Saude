@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+  Image,
+} from "react-native";
 import { supabase } from "../lib/supabase";
 import { useRouter } from "expo-router";
 import Input from "../components/Input";
@@ -22,20 +30,67 @@ export default function Login() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+    <KeyboardAvoidingView
+      style={{ flex: 1, backgroundColor: "#f5f7fb" }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="handled"
+      >
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={styles.logo}
+        />
+        <Text style={styles.title}>Login</Text>
 
-      <Input placeholder="Email" onChangeText={setEmail} />
-      <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
+        <Input
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+          keyboardType="email-address"
+        />
+        <Input
+          placeholder="Senha"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
 
-      <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Entrar" onPress={handleLogin} />
 
-      <Text onPress={() => router.push("/register")}>Criar conta</Text>
-    </View>
+        <Text style={styles.link} onPress={() => router.push("/register")}>
+          Criar conta
+        </Text>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", padding: 20 },
-  title: { fontSize: 28, marginBottom: 20 },
+  container: {
+    flexGrow: 1,
+    justifyContent: "center",
+    padding: 20,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    alignSelf: "center",
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 28,
+    marginBottom: 20,
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "#1c3d5a",
+  },
+  link: {
+    textAlign: "center",
+    marginTop: 16,
+    color: "#2f80ed",
+    fontWeight: "bold",
+  },
 });
